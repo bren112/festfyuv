@@ -1,0 +1,23 @@
+.container-login{
+    display: flex;
+    justify-content: space-around;
+}
+#login-img{
+    width: 40pc;
+}
+#titulo{
+    text-align: center;
+    font-size: 2.7pc;
+    color: var(--red);
+}
+#desc{
+    text-align: justify;
+    max-width: 30pc;
+    color: rgb(160, 160, 160);
+    margin-top: 1pc;
+}
+.div-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 1pc;
+}
