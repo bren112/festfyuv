@@ -97,7 +97,7 @@ export default function Teste() {
 </svg></button>
               </div>
               <br></br>
-              <p className='p'>Seu Comprovante!</p>
+              <p className='p'>Mande Seu Comprovante!</p>
               <input type="file" />
               <br></br>  <br></br>
               <div id='btn-end'>        
