@@ -3,7 +3,7 @@ import firebase from "firebase/app";
 import { auth } from "./firebase";
 import './btn.css';
 import './login.css';
-import img_login from './images/login.png' 
+import fundo from './images/fundo.png' 
 
 export default function Sobre() {
   const handleLogin = async () => {
@@ -30,25 +30,31 @@ export default function Sobre() {
 
       <div>
 
-    <img src={img_login} alt="" srcset="" id='login-img'/>
+    <img src={fundo}
+    id='fundo'
+    ></img>
 
 
       </div>
       <div>
-        <h1 id='titulo'>REALIZE SEU LOGIN!</h1>
+          <div id='text'>
+        <h1 id='titulo'>REALIZE SEU <br></br><span className='span'>LOGIN!</span></h1>
 
-        <p id='desc'>
-        Para garantir seu lugar nesse evento incrível, faça 
-        o login agora e adquira
-         seu ingresso antes que acabem! 
-         Mal podemos esperar para ver você em nossa festa!
+        <img src={fundo}
+        id='fundo-mobile'
+        ></img>
+
+<br></br>
+        <p>Através de sua Conta Google <br></br>
+        e garanta seu <span className='span'>INGRESSO!</span>
         </p>
-        <p id='desc'>
-        Estamos adotando um novo método de login em parceria com o Google. Esperamos que essa mudança facilite sua experiência de acesso à nossa plataforma.
-        </p>
-      <div className='div-btn'>
+        <div className='div-btn'>
       <button onClick={handleLogin} className='login-with-google-btn'>Login Google</button>
       </div>
+        </div>
+
+       
+ 
       </div>
       </div>
     </>

@@ -21,3 +21,55 @@
     justify-content: center;
     margin-top: 1pc;
 }
+#fundo{
+    width: 100%;
+    height: 30pc;
+}
+.span{
+    font-weight: bolder;
+    color: var(--primary);
+    
+   
+}
+#text{
+    position: relative;
+    top: 4pc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+p{
+    text-align: center;
+    color: var(--red);
+}
+#fundo-mobile{
+    width: 0%;
+   display: none;
+}
+@media screen and (max-width: 870px) {
+    .container-login{
+        display: flex;
+        flex-direction: column;
+    }
+    p{
+        text-align: center;
+        color: var(--red);
+        font-size: 23px;
+    }
+    #fundo{
+        width: 0%;
+        display: none;
+    }
+    #fundo-mobile{
+        width: 100%;
+        height: 17pc;
+        display: block;
+    }
+    #text{
+        position: relative;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

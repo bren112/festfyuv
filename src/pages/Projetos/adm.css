@@ -1,0 +1,82 @@
+h1{
+    font-size: 2pc;
+}
+form{
+    background-color: rgba(97, 97, 97, 0.123);
+    display: flex;
+    flex-direction: column;
+    gap: -2pc;
+    text-align: center;
+    width: 20pc;
+    align-items: center;
+    height: 20pc;
+    border-radius: 13px;
+    margin-top: 20%;
+}
+input{
+    height: 2pc;
+    width: 15pc;
+    border-radius: 8px;
+    border: solid rgba(0, 0, 0, 0.651) 1px;
+    background-color: rgba(100, 100, 100, 0.11);
+    font-size: 1pc;
+    color: var(--primary);
+    margin-top: 2pc;
+}
+input ::placeholder{
+    color: var(--red);
+
+}
+
+.home .btn {
+    width: 250px;
+    height: 60px;
+    font-size: 1.125rem;
+    font-weight: bold;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn_red {
+    color: var(--white);
+    background-color: var(--red);
+  }
+  
+  .btn_red:hover {
+    transition: all 1s;
+    background-color: var(--primary);
+  }
+  #link{
+    text-decoration: none;
+    color: var(--red);
+    position: relative;
+    top: 4px;
+  }
+  #btn{
+    background-color: var(--primary);
+    color: black;
+    font-weight: bolder;
+    margin-top: 2pc;
+    width: 12pc;
+    height: 2pc;
+    border-radius: 2pc;
+}
+#user{
+  width: 5pc;
+  height: 5pc;
+  border-radius: 5pc;
+}
+.header{
+  display: flex;
+  justify-content: space-around;
+}
+#front{
+  width: 30pc;
+}
+#title{
+  font-size:2.4pc;
+}

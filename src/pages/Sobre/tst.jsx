@@ -53,8 +53,8 @@ export default function Teste() {
             <div id='user'>
               <img src={userPhoto} alt="Foto de perfil do usuário" id='userfoto' />
               <div>
-                <h1>Olá {displayName}</h1>
-                <p>Adquira aqui seu ingresso!</p>
+                <h1>Olá <span className='span'>{displayName}</span></h1>
+                <p id='frase-ingresso'>Adquira aqui<br></br> seu ingresso!</p>
               </div>
 
             </div>
@@ -73,6 +73,11 @@ export default function Teste() {
             <div id='img-btn'>
             <img src={Flyer} alt="flyer" id='flyer' />
             <button onClick={toggleText} id='buy'>Compre seu Ingresso!</button>
+            <br></br>
+            <div className='espaco'>
+                <br></br>
+                <br></br>
+                </div>
             </div>
             <br></br>
             {showText && (
@@ -81,7 +86,7 @@ export default function Teste() {
                 <h1 id='valor-ingresso'>R$35,00</h1>
 
                 <br></br>
-                <p className='p'>Seu Nome:</p>
+                <p className='p'>Seu Nome Completo:</p>
                 <input type="text" placeholder='Nome' />
                 <br></br>  
                 <p className='p'>Seu número telefone:</p>
@@ -89,7 +94,7 @@ export default function Teste() {
                 <input type="number" placeholder='Telefone' />
                 <br></br> 
                 
-               <p className='p'>Pague nessa chave Pix :)</p>
+               <p className='p'>Pague nessa chave <span className='span'>Pix</span> :)</p>
                <div id='pix'>
               <input type="text" placeholder='43214424866' disabled='true' />
                 <button onClick={copyText} id='copiar'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
@@ -103,12 +108,15 @@ export default function Teste() {
               <div id='btn-end'>        
               <button id='Enviar'>Enviar</button>
              </div>
+             <br></br>
+                <br></br>
 
               </div>
               
             )}
-                
+             
           </div>
+          
         </>
       )}
       {!userPhoto && <Link to="/sobre" className='login-with-google-btn'>Redirect para Login</Link>}

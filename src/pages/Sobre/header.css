@@ -1,4 +1,5 @@
 .header {
+    margin-top: 1pc;
     width: 97%;
     height: 70px;
     display: flex;
@@ -11,8 +12,9 @@
     gap: 2pc;
   }
   #userfoto{
-    border-radius: 40px;
-    width: 50px;
+    border-radius: 80px;
+    width: 100px;
+    height: 100px;
   }
   .logout-btn{
   color: var(--red);
@@ -64,16 +66,72 @@
     justify-content: center;
  }
  #container-infos{
-
     width: 20pc;
     display: flex;
     flex-direction: column;
-  
     background-color: rgba(114, 114, 114, 0.027);
     border-radius: 20px;
  }
  .p{
-    color: var(--primary);
+    color: var(--red);
+ }
+ .span{
+  color: var(--primary);
+  font-weight: bolder;
+ }
+ .espaco{
+  display: block;
+ }
 
-    
+ @media screen and (max-width: 870px) {
+  #container-ingresso{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #userfoto{
+    border-radius: 40px;
+    width: 90px;
+    height: 90px;
+  }
+  #frase-ingresso{
+    font-size: 19px;
+  }
+  .espaco{
+    display: none;
+   }
+   #container-infos {
+    width: 20pc;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(114, 114, 114, 0.027);
+    border-radius: 20px;
+    position: relative;
+    top: -6pc;
+}
+
+ }
+ @media screen and (max-width: 667px) {
+  .header{
+    margin-top: 2pc;
+  }
+  #userfoto{
+    border-radius: 40px;
+    width: 50px;
+    height: 50px;
+  }
+  #frase-ingresso {
+    font-size: 0px;
+    display: none;
+}
+#container-infos {
+  width: 16pc;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(114, 114, 114, 0.027);
+  border-radius: 20px;
+  position: relative;
+  top: -6pc;
+}
+
  }

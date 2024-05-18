@@ -1,0 +1,42 @@
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: var(--primary);
+    color: white;
+  }
+  #aprovar{
+    background-color: rgb(39, 189, 39);
+    height: 2.3pc;
+    width: 4pc;
+    border-radius: 4pc;
+    border: none;
+    color: white;
+  }
+  #del{
+    background-color: rgb(214, 21, 15);
+    height: 2.3pc;
+    width: 4pc;
+    border-radius: 4pc;
+    border: none;
+    color: white;
+  }
+  h1{
+    text-align: center;
+  }

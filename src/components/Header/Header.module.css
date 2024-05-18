@@ -21,6 +21,10 @@
 .header a:hover {
   color: var(--red);
 }
+.svg{
+  position: relative;
+  top: 5px;
+}
 
 @media screen and (max-width: 790px) {
   /* Estilizações CSS */
