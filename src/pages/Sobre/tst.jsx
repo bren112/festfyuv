@@ -5,7 +5,7 @@ import './style.css';
 const Teste = () => {
   const [nome, setNome] = useState('');
   const [telefone, setTelefone] = useState('');
-  const [valorPago, setValorPago] = useState('25');
+  const [valorPago, setValorPago] = useState('20');
   const chavePix = '48843176889'; // Chave Pix
 
   const handleSubmit = async (event) => {
