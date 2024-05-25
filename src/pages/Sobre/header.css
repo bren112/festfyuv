@@ -13,8 +13,8 @@
   }
   #userfoto{
     border-radius: 80px;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
   }
   .logout-btn{
   color: var(--red);
@@ -42,7 +42,7 @@
     display: flex;
     justify-content: space-between;
     gap: 3pc;
-    border: solid 1px var(--primary);
+    
     border-radius: 3px;
     
   }
