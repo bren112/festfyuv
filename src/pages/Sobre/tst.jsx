@@ -17,7 +17,7 @@ const Teste = () => {
       }
       setNome('');
       setTelefone('');
-      setValorPago('25'); 
+      setValorPago('20'); 
       alert('Dados inseridos com sucesso!');
     } catch (error) {
       console.error('Erro ao inserir os dados:', error.message);
