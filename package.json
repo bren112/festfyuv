@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "firebase": "8.10",
+    "@supabase/supabase-js": "^2.43.3",
+    "bcryptjs": "^2.4.3",
+    "firebase": "^9.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",

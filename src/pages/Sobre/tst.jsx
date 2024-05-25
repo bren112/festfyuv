@@ -1,128 +1,68 @@
-import React, { useEffect, useState } from 'react';
-import { auth } from "./firebase";
-import { Link } from 'react-router-dom';
-import './btn.css';
-import './header.css';
-import Flyer from './images/flyer.jfif';
+import React, { useState } from 'react';
+import { supabase } from '../../Supabase/createClient';
+import './style.css';
 
-export default function Teste() {
-  const [userPhoto, setUserPhoto] = useState(null);
-  const [displayName, setDisplayname] = useState(null);
-  const [showText, setShowText] = useState(false); // Estado para controlar a exibição da div
+const Teste = () => {
+  const [nome, setNome] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [valorPago, setValorPago] = useState('25');
+  const chavePix = '48843176889'; // Chave Pix
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      if (user) {
-        setUserPhoto(user.photoURL);
-        setDisplayname(user.displayName);
-        console.log(user);
-      } else {
-        setUserPhoto(null);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const { data, error } = await supabase.from('user_solicitacao').insert([{ nome, telefone, pagamento: valorPago }]);
+      if (error) {
+        throw error;
       }
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  const handleLogout = async () => {
-    await auth.signOut();
+      setNome('');
+      setTelefone('');
+      setValorPago('25'); 
+      alert('Dados inseridos com sucesso!');
+    } catch (error) {
+      console.error('Erro ao inserir os dados:', error.message);
+    }
   };
 
-  const copyText = () => {
-    const textToCopy = "Copie esse texto";
-    navigator.clipboard.writeText(textToCopy)
-      .then(() => {
-        console.log('Texto copiado:', textToCopy);
-        alert('Chave Pix copiada!');
-      })
-      .catch(err => {
-        console.error('Erro ao copiar texto:', err);
-        alert('Erro ao copiar texto. Por favor, tente novamente.');
-      });
-  };
-
-  const toggleText = () => {
-    setShowText(!showText); // Alterna entre true e false
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(chavePix);
+    alert('Chave Pix copiada!');
   };
 
   return (
-    <>
-      {userPhoto && (
-        <>
-          <div className='header'>
-            <div id='user'>
-              <img src={userPhoto} alt="Foto de perfil do usuário" id='userfoto' />
-              <div>
-                <h1>Olá <span className='span'>{displayName}</span></h1>
-                <p id='frase-ingresso'>Adquira aqui<br></br> seu ingresso!</p>
-              </div>
-
-            </div>
-            <button onClick={handleLogout} className='logout-btn'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-box-arrow-left" viewBox="0 0 16 16">
-                <path fillRule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
-                <path fillRule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
-              </svg>
-            </button>
-          </div>
-
-          <br></br> 
-
-
-          <div id='container-ingresso'>
-            <div id='img-btn'>
-            <img src={Flyer} alt="flyer" id='flyer' />
-            <button onClick={toggleText} id='buy'>Compre seu Ingresso!</button>
-            <br></br>
-            <div className='espaco'>
-                <br></br>
-                <br></br>
-                </div>
-            </div>
-            <br></br>
-            {showText && (
-              
-              <div id='container-infos'>
-                <h1 id='valor-ingresso'>R$35,00</h1>
-
-                <br></br>
-                <p className='p'>Seu Nome Completo:</p>
-                <input type="text" placeholder='Nome' />
-                <br></br>  
-                <p className='p'>Seu número telefone:</p>
-              
-                <input type="number" placeholder='Telefone' />
-                <br></br> 
-                
-               <p className='p'>Pague nessa chave <span className='span'>Pix</span> :)</p>
-               <div id='pix'>
-              <input type="text" placeholder='43214424866' disabled='true' />
-                <button onClick={copyText} id='copiar'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+    <div className='centro'>
+      <h1 id='title'>Compre aqui seu Ingresso!</h1>
+      
+      <form onSubmit={handleSubmit}>
+        <br></br>
+        <h3>Ingresso do Arraial Da Diretoria 🤠</h3>
+        <div>
+          <input placeholder='Nome' type="text" id="nome" value={nome} onChange={(e) => setNome(e.target.value)} required />
+          <p>Nome Completo</p>
+        </div>
+        <div>
+          <input placeholder='Telefone' type="text" id="telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)} required />
+        </div>
+        <div>
+          <p><span id='span'>Coloque seu número correto para podermos entrar em contato!</span></p>
+          <input placeholder='Valor Ingresso' type="text" id="valorPago" disabled='true' value={valorPago} onChange={(e) => setValorPago(e.target.value)} required />
+          <p>Valor a Pagar</p>
+        </div>
+        <div>
+          <div className='pix'> 
+          <input placeholder={chavePix} type="text" disabled />
+          <button id='pix' type="button" onClick={copyToClipboard}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
 </svg></button>
-              </div>
-              <br></br>
-              <p className='p'>Mande Seu Comprovante!</p>
-              <input type="file" />
-              <br></br>  <br></br>
-              <div id='btn-end'>        
-              <button id='Enviar'>Enviar</button>
-
-             </div>
-             <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-
-              </div>
-              
-            )}
-             
           </div>
-          
-        </>
-      )}
-      {!userPhoto && <Link to="/sobre" className='login-with-google-btn'>Redirect para Login</Link>}
-    </>
+          <p>Chave Pix</p>
+        </div>
+        <br></br>
+        <button id='enviar' type="submit">Enviar</button>
+        <br></br>
+      </form>
+    </div>
   );
 }
+
+export default Teste;

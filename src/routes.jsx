@@ -9,6 +9,8 @@ import Teste from "./pages/Sobre/tst";
 import Aprovar from "./pages/Projetos/aprovar";
 import Adm from "./pages/Projetos/adm";
 import Dashboard from "./pages/Projetos/dashboard";
+import Register from "./pages/Login/register";
+
 
 function AppRoutes() {
   return (
@@ -17,6 +19,7 @@ function AppRoutes() {
         <Route path="/" element={<PageBase />}>
           <Route index element={<Home />}></Route>
           <Route path="/sobre" element={<Sobre />}></Route>
+          <Route path="/cadastrar" element={<Register />}></Route>
           <Route path="/teste" element={<Teste />}></Route>
           <Route path="/projetos" element={<Projetos />}></Route>
           <Route path="/contatos" element={<Contatos />}></Route>

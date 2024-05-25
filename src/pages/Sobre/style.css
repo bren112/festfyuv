@@ -1,0 +1,82 @@
+
+
+#flyer {
+    width: 100%; 
+    max-width: 300px; /* Largura máxima do flyer */
+    height: auto; 
+  }
+  
+  #title {
+    text-align: center;
+  }
+  
+  .accordion {
+    width: 90%; 
+    max-width: 500px;
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1pc;
+  }
+  
+  .accordion-item {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    width: 100%; 
+  }
+  
+  .accordion-item-header {
+    background-color: #f1f1f1;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .accordion-item-content {
+    padding: 10px;
+    display: none;
+  }
+  
+  .accordion-item.open .accordion-item-content {
+    display: block;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+ 
+  @media only screen and (min-width: 768px) {
+   
+    .accordion {
+      width: 70%;
+    }
+  }
+  .centro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #enviar{
+    background-color: var(--primary);
+    width: 9pc;
+    border: none;
+    height:2pc;
+    border-radius: 1.7pc;
+    font-size: 0.8pc;
+  }
+  #span{
+    font-size: 8px;
+    color: red;
+  }
+  .pix{
+    display: flex;
+    justify-content: space-around;
+  }
+  #pix{
+    width: 2pc;
+    border: none;
+    position: relative;
+    top: 1pc;
+    background-color: rgba(255, 228, 196, 0);
+
+  }

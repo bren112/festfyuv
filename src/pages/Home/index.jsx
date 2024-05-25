@@ -7,7 +7,7 @@ function Home() {
     <>
       <section className={styles.home}>
         <div className={styles.apresentacao}>
-          <p>Compre seu <br></br><span>Ingresso</span> <br></br> Aqui na <span id="2">Festfy!</span></p>
+          <p>Arrayal da <br></br><span>Dieretoria</span> <br></br></p>
         
           
           <img 

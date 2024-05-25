@@ -1,0 +1,116 @@
+import React, { useState, useEffect } from 'react';
+import { supabase } from './client';
+
+export default function Sobre() {
+  const [users, setUsers] = useState([]);
+  const [nome, setNome] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [valorPago, setValorPago] = useState('');
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('user-solicitacao')
+        .select('*');
+
+      if (error) {
+        throw error;
+      }
+
+      setUsers(data);
+    } catch (error) {
+      console.error('Erro ao buscar usuários:', error.message);
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data, error } = await supabase
+        .from('user-solicitacao')
+        .insert([
+          { nome, telefone, valorpago: valorPago }
+        ]);
+
+      if (error) {
+        throw error;
+      }
+
+      setNome('');
+      setTelefone('');
+      setValorPago('');
+
+      fetchUsers();
+    } catch (error) {
+      console.error('Erro ao inserir usuário:', error.message);
+    }
+  };
+
+  return (
+    <>
+      <h1>Usuários</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Valor Pago</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.nome}</td>
+              <td>{user.telefone}</td>
+              <td>{user.valorpago}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h2>Adicionar Novo Usuário</h2>
+
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="nome">Nome:</label>
+          <input
+            type="text"
+            id="nome"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="telefone">Telefone:</label>
+          <input
+            type="text"
+            id="telefone"
+            value={telefone}
+            onChange={(e) => setTelefone(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="valorPago">Valor Pago:</label>
+          <input
+            type="text"
+            id="valorPago"
+            value={valorPago}
+            onChange={(e) => setValorPago(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </>
+  );
+}

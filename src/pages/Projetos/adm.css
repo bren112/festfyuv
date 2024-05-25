@@ -9,7 +9,7 @@ form{
     text-align: center;
     width: 20pc;
     align-items: center;
-    height: 20pc;
+    height: 32pc;
     border-radius: 13px;
     margin-top: 20%;
 }
@@ -20,9 +20,11 @@ input{
     border: solid rgba(0, 0, 0, 0.651) 1px;
     background-color: rgba(100, 100, 100, 0.11);
     font-size: 1pc;
-    color: var(--primary);
     margin-top: 2pc;
+    text-align: center;
+    
 }
+
 input ::placeholder{
     color: var(--red);
 
@@ -79,4 +81,8 @@ input ::placeholder{
 }
 #title{
   font-size:2.4pc;
+}
+form{
+  position: relative;
+  top: -3pc;
 }

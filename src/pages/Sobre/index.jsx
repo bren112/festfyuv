@@ -1,68 +1,61 @@
-import React from 'react';
-import firebase from "firebase/app";
-import { auth } from "./firebase";
-import './btn.css';
-import './login.css';
-import fundo from './images/fundo.png'
-import { Link } from "react-router-dom"; 
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './style.css';
+import img from './images/arrayal.jpg';
 
-export default function Sobre() {
-  const handleLogin = async () => {
-    try {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      const result = await auth.signInWithPopup(provider);
-      
-      if (result.user) {
-        const { displayName, photoURL } = result.user;
-        if (!displayName || !photoURL) {
-          throw new Error('O usuário não tem DisplayName ou photoUrl');
-        }
+const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSecondAccordionOpen, setIsSecondAccordionOpen] = useState(false);
 
-        window.location.href = '/teste'; // Redireciona para o componente Teste após o login
-      }
-    } catch (error) {
-      console.error('Erro ao fazer login:', error.message);
-    }
+  const toggleAccordion = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const toggleSecondAccordion = () => {
+    setIsSecondAccordionOpen(!isSecondAccordionOpen);
   };
 
   return (
     <>
-    <div className='container-login'>
-
-      <div>
-
-    <img src={fundo}
-    id='fundo'
-    ></img>
-
-
-      </div>
-      <div>
-          <div id='text'>
-        <h1 id='titulo'>REALIZE SEU <br></br><span className='span'>LOGIN!</span></h1>
-
-        <img src={fundo}
-        id='fundo-mobile'
-        ></img>
-
-<br></br>
-        <p>Através de sua Conta Google <br></br>
-        e garanta seu <span className='span'>INGRESSO!</span>
-        </p>
-        <div className='div-btn'>
-      <button onClick={handleLogin} className='login-with-google-btn'>Login Google</button>
-      <div id='btn'>
-          <Link to="/teste" id='link'>
-           TESTE MOBIKE
-          </Link>
+      <h1 id='title'>Compre seu ingresso!</h1>
+      <div className="accordion">
+        <img src={img} alt="Flyer" id="flyer" />
+        <div className={`accordion-item ${isOpen ? 'open' : ''}`} onClick={toggleAccordion}>
+          <div className="accordion-item-header">Está com dúvidas se vai em nosso Arráia? Confira nossas atrações:👇🏽🤠</div>
+          <div className="accordion-item-content">
+            <ul>
+              <li>🌾 Climinha junino, fogueira, decoração e muito mais</li>
+              <li>🌾 Contaremos com bar de apoio</li>
+              <li>🌾 Diversidade de comida</li> 
+              <li>🌾 Estrutura e som diferenciado</li>
+              <li>🌾 Dessa vez, em um novo local</li>
+              <li>🌾 Atração inédita!</li>
+            </ul>
+          </div>
         </div>
       </div>
+      <div className="accordion">
+        <div className={`accordion-item ${isSecondAccordionOpen ? 'open' : ''}`} onClick={toggleSecondAccordion}>
+          <div className="accordion-item-header">Arráia da Diretoria 🤠🌽</div>
+          <div className="accordion-item-content">
+            <ul>
+              <li>👕 Ir trajado com tema junino camisa xadrez, etc, da forma que preferirem, desde que se enquadre no tema!</li>
+              <li>🗓️ 28/06</li>
+              <li>🍻 Bar (+18)</li>
+              <li>⏰ 21:00h - ????</li>
+              <li>📍Santa Rita do Passa Quatro-(localização exata no dia)</li>
+            </ul>
+          </div>
         </div>
-
-       
- 
       </div>
-      </div>
+      <Link to="/teste"><button id='enviar'>Compre Aqui</button></Link>
+<div>
+  <br></br>
+  <br></br>
+  <br></br>
+</div>
     </>
   );
-}
+};
+
+export default App;

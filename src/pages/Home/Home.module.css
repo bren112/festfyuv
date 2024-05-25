@@ -8,8 +8,8 @@
 }
 
 .home img {
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
 }
 
 .home p {
@@ -129,12 +129,12 @@
 
 
   .home p {
-    font-size: 1.8pc;
+    font-size: 1.6pc;
     margin-bottom: 0.4rem;
   }
 
   .home span {
-    font-size: 1.9pc;
+    font-size: 1.6pc;
     color: var(--red);
     font-weight: bold;
   }
