@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
-import img from './images/arrayal.jpg';
+import img from './images/arrai.jpg';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
