@@ -5,7 +5,7 @@ import './style.css';
 const Teste = () => {
   const [nome, setNome] = useState('');
   const [telefone, setTelefone] = useState('');
-  const [valorPago, setValorPago] = useState('20');
+  const [valorPago, setValorPago] = useState('21.50');
   const chavePix = '48843176889'; // Chave Pix
 
   const handleSubmit = async (event) => {
@@ -17,7 +17,7 @@ const Teste = () => {
       }
       setNome('');
       setTelefone('');
-      setValorPago('20'); 
+      setValorPago('21.50'); 
       alert('Dados inseridos com sucesso!');
     } catch (error) {
       console.error('Erro ao inserir os dados:', error.message);
@@ -31,7 +31,7 @@ const Teste = () => {
 
   return (
     <div className='centro'>
-      <h1 id='title'>Compre aqui seu Ingresso!</h1>
+      <h1 id='title'>Adquira aqui seu Ingresso!</h1>
       
       <form onSubmit={handleSubmit}>
         <br></br>
@@ -46,7 +46,7 @@ const Teste = () => {
         <div>
           <p><span id='span'>Coloque seu número correto para podermos entrar em contato!</span></p>
           <input placeholder='Valor Ingresso' type="text" id="valorPago" disabled='true' value={valorPago} onChange={(e) => setValorPago(e.target.value)} required />
-          <p>Valor a Pagar</p>
+          <p id='span'>PROMOÇÃO LIMITADA⚠️</p>
         </div>
         <div>
           <div className='pix'> 
