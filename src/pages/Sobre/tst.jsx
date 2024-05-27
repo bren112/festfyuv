@@ -5,7 +5,7 @@ import './style.css';
 const Teste = () => {
   const [nome, setNome] = useState('');
   const [telefone, setTelefone] = useState('');
-  const [valorPago, setValorPago] = useState('21.50');
+  const [valorPago, setValorPago] = useState('22');
   const chavePix = '48843176889'; // Chave Pix
 
   const handleSubmit = async (event) => {
@@ -17,7 +17,7 @@ const Teste = () => {
       }
       setNome('');
       setTelefone('');
-      setValorPago('21.50'); 
+      setValorPago('22'); 
       alert('Dados inseridos com sucesso!');
     } catch (error) {
       console.error('Erro ao inserir os dados:', error.message);
