@@ -48,7 +48,7 @@ const App = () => {
           </div>
         </div>
       </div>
-      <Link to="/teste"><button id='enviar'>Compre Aqui</button></Link>
+      <Link to="/teste"><button id='enviar'>Clique Aqui</button></Link>
 <div>
   <br></br>
   <br></br>
