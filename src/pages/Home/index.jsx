@@ -20,7 +20,7 @@ function Home() {
 
       <div className={styles.divbtn}>
           <Link to="/sobre" className={`${styles.btn} ${styles.btn_red}`}>
-           Compre aqui
+           Clique aqui
           </Link>
         </div>
           </div>
