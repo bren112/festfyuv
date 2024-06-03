@@ -46,7 +46,7 @@ const Teste = () => {
         <div>
           <p><span id='span'>Coloque seu número correto para podermos entrar em contato!</span></p>
           <input placeholder='Valor Ingresso' type="text" id="valorPago" disabled='true' value={valorPago} onChange={(e) => setValorPago(e.target.value)} required />
-          <p id='span'>PROMOÇÃO LIMITADA⚠️</p>
+          <p id='span'>SEGUNDO LOTE LIMITADO⚠️</p>
         </div>
         <div>
           <div className='pix'> 
