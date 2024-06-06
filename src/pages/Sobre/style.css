@@ -1,4 +1,13 @@
-
+select{
+  height: 2pc;
+    width: 15pc;
+    border-radius: 8px;
+    border: solid rgba(0, 0, 0, 0.651) 1px;
+    background-color: rgba(100, 100, 100, 0.11);
+    font-size: 1pc;
+    margin-top: 2pc;
+    text-align: center;
+}
 
 #flyer {
     width: 100%; 
