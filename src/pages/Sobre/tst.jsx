@@ -49,7 +49,7 @@ const Teste = () => {
             <option value="32">Valor da casa (32)</option>
             <option value="30">Valor de fora (30)</option>
           </select>
-          <p id='span'>SEGUNDO LOTE LIMITADO⚠️</p>
+          <p id='span'>TERCEIRO LOTE LIMITADO⚠️</p>
         </div>
         <div>
           <div className='pix'> 
