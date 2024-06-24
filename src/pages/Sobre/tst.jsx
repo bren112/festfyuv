@@ -5,7 +5,7 @@ import './style.css';
 const Teste = () => {
   const [nome, setNome] = useState('');
   const [telefone, setTelefone] = useState('');
-  const [valorPago, setValorPago] = useState('32');
+  const [valorPago, setValorPago] = useState('35');
   const chavePix = '48843176889'; // Chave Pix
 
   const handleSubmit = async (event) => {
@@ -17,7 +17,7 @@ const Teste = () => {
       }
       setNome('');
       setTelefone('');
-      setValorPago('32'); 
+      setValorPago('35'); 
       alert('Dados inseridos com sucesso!');
     } catch (error) {
       console.error('Erro ao inserir os dados:', error.message);
@@ -46,8 +46,8 @@ const Teste = () => {
         <div>
           <p><span id='span'>Coloque seu número correto para podermos entrar em contato!</span></p>
           <select id="valorPago" value={valorPago} onChange={(e) => setValorPago(e.target.value)} required>
-            <option value="32">Valor da casa (32)</option>
-            <option value="30">Valor de fora (30)</option>
+            <option value="35">Valor da casa (35)</option>
+            <option value="35">Valor de fora (35)</option>
           </select>
           <p id='span'>TERCEIRO LOTE LIMITADO⚠️</p>
         </div>
